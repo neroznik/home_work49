@@ -52,7 +52,7 @@ class TasksCreateView(View):
                 if value is not None:
                     data[key] = value
             task = Tasks.objects.create(**data)
-            return redirect('article_view', pk=task.pk)
+            return redirect('task_view', pk=task.pk)
         else:
             return render(request, 'task_create.html', context={
                 'form': form
@@ -86,7 +86,7 @@ class TasksUpdateView(TemplateView):
                 if value is not None:
                     setattr(task, key, value)
             task.save()
-            return redirect('task_view_view', pk=Tasks.pk)
+            return redirect('task_view', pk=pk)
         else:
             return self.render_to_response({
                 'Tasks': task,

@@ -6,12 +6,13 @@
 {% block content %}
     <div class = 'block1'><h1>Мои задачи:</h1>
     {% for Task in Tasks %}
-        <h3><a href="{% url "task_view" Task.pk %}">{{ Task.task }}</a></h3>
+        <h3><a href="{% url "task_view" Task.pk %}">{{ Task.summary }}</a></h3>
         <div>{{ Task.description | linebreaks }}</div>
-        <p>Статус: ({{ Task.get_status_display }})</p>
-        <p>Дедлайн: {{ Task.date_proccessing | date:"d.m.Y" }} </p>
-        <p><a href="{% url 'task_update' Task.pk %}">Update</a></p>
-        <p><a href="{% url 'task_delete' Task.pk %}">Delete</a></p>
+        <p>Создано: {{ Task.created_at | date:"d.m.Y" }} </p>
+        <p>Статус: {{ Task.status }}</p>
+        <p>Тип: {{ Task.type}}</p>
+        <p><a href="{% url "task_update" Task.pk %}">Update</a></p>
+        <p><a href="{% url "task_delete" Task.pk %}">Delete</a></p>
         <hr>
     {% endfor %}
     </div>
