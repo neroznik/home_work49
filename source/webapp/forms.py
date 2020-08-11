@@ -9,3 +9,4 @@ class TasksForm(forms.Form):
     description = forms.CharField(max_length=1000, required=False, label='Описание', widget=forms.Textarea)
     status = forms.ModelChoiceField(queryset=models.Status.objects.all(), required=True, widget=forms.Select(attrs={'status':'Статус'}))
     type = forms.ModelChoiceField(queryset=models.Types.objects.all(),required=True, widget=forms.Select(attrs={'type':'Тип'}))
+
