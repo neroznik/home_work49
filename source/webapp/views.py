@@ -37,7 +37,7 @@ class TasksView(TemplateView):
         context['Tasks'] = task
         return context
 
-class TasksCreateView(CreateView):
+class TasksCreateView(FormView):
     template_name = 'task_create.html'
     form_class = TasksForm
 
@@ -50,7 +50,7 @@ class TasksCreateView(CreateView):
         return super().form_valid(form)
 
     def get_redirect_url(self):
-        return reverse('task_view', kwargs={'pk': self.task.pk})
+        return reverse('task_view', kwargs={'pk': self.Tasks.pk})
 
 class TasksUpdateView(FormView):
     template_name = 'task_update.html'
@@ -67,7 +67,7 @@ class TasksUpdateView(FormView):
 
     def get_initial(self):
         initial = {}
-        for key in 'summary', 'description', 'type', 'status':
+        for key in 'summary', 'description', 'type', 'status', 'created_at':
             initial[key] = getattr(self.task, key)
         return initial
 

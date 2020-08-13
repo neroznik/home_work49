@@ -1,12 +1,24 @@
 from django import forms
+from django.core.exceptions import ValidationError
 
-from . import models
 from .models import Tasks
 
 
 class TasksForm(forms.Form):
-    summary = forms.CharField(max_length=100, required=True, label='Задача')
-    description = forms.CharField(max_length=1000, required=False, label='Описание', widget=forms.Textarea)
-    status = forms.ModelMultipleChoiceField(queryset=models.Status.objects.all(), required=True, widget=forms.Select(attrs={'status':'Статус'}))
-    type = forms.ModelMultipleChoiceField(queryset=models.Types.objects.all(),required=True, widget=forms.Select(attrs={'type':'Тип'}))
 
+    class Meta:
+        model = Tasks
+        fields = ['summary', 'description', 'type', 'status', 'publish_at']
+        widgets = {'status': forms.CheckboxSelectMultiple,
+                   'type': forms.CheckboxSelectMultiple}
+
+    def clean(self):
+        cleaned_data = super().clean()
+        errors = []
+        summary = cleaned_data.get('summary')
+        description = cleaned_data.get('description')
+        if summary and description and summary == description:
+            errors.append(ValidationError("Text of the task should not be same with description"))
+        if errors:
+            raise ValidationError(errors)
+        return cleaned_data

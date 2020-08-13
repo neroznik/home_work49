@@ -1,3 +1,4 @@
+from django.core.validators import MinLengthValidator, ProhibitNullCharactersValidator
 from django.utils import timezone
 from django.db import models
 
@@ -16,9 +17,9 @@ class Types(models.Model):
 
 
 class Tasks(models.Model):
-    summary = models.CharField(max_length=100, verbose_name='Задача')
-    description = models.TextField(max_length=1000, null=True, blank=True, verbose_name='Описание')
-    status = models.ManyToManyField('webapp.Status', related_name='status', blank=True, verbose_name='Статус')
+    summary = models.CharField(max_length=100, verbose_name='Задача', validators=[ProhibitNullCharactersValidator()])
+    description = models.TextField(max_length=1000, null=True, blank=True, verbose_name='Описание', validators=[MinLengthValidator(15)])
+    status = models.ForeignKey('webapp.Status', related_name='status', default=1, on_delete=models.PROTECT, verbose_name='Статус')
     type = models.ManyToManyField('webapp.Types', related_name='types', blank=True, verbose_name='Тип')
     created_at = models.DateTimeField(verbose_name='Время создания', default=timezone.now)
 
