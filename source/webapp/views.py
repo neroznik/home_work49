@@ -42,15 +42,12 @@ class TasksCreateView(FormView):
     form_class = TasksForm
 
     def form_valid(self, form):
-        data = {}
-        for key, value in form.cleaned_data.items():
-            if value is not None:
-                data[key] = value
-        task = Tasks.objects.create(**data)
+        self.task = form.save()
         return super().form_valid(form)
 
-    def get_redirect_url(self):
-        return reverse('task_view', kwargs={'pk': self.Tasks.pk})
+    def get_success_url(self):
+        return reverse('task_view', kwargs={'pk': self.task.pk})
+
 
 class TasksUpdateView(FormView):
     template_name = 'task_update.html'
@@ -66,16 +63,15 @@ class TasksUpdateView(FormView):
         return context
 
     def get_initial(self):
-        initial = {}
-        for key in 'summary', 'description', 'type', 'status', 'created_at':
-            initial[key] = getattr(self.task, key)
-        return initial
+        return {'created_at': make_naive(self.task.created_at)}
+
+    def get_form_kwargs(self):
+        kwargs = super().get_form_kwargs()
+        kwargs['instance'] = self.task
+        return kwargs
 
     def form_valid(self, form):
-        for key, value in form.cleaned_data.items():
-            if value is not None:
-                setattr(self.task, key, value)
-        self.task.save()
+        self.task = form.save()
         return super().form_valid(form)
 
     def get_success_url(self):
@@ -84,6 +80,8 @@ class TasksUpdateView(FormView):
     def get_object(self):
         pk = self.kwargs.get('pk')
         return get_object_or_404(Tasks, pk=pk)
+
+
 
 def task_delete_view(request, pk):
     task = get_object_or_404(Tasks, pk=pk)

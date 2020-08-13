@@ -14,6 +14,6 @@
     <p>{{ Tasks.description | linebreaks}}</p>
     <p>Создан: {{ Tasks.created_at }}</p>
     <p>Статус: {{ Tasks.status }}</p>
-    <p>Тип: {{ Tasks.type }}</p
+    <p>Тип: {% for type in Tasks.type.all %}{{ type.name }}{% if not forloop.last %}, {%  endif %} {% endfor %}</p
     </div>
 {% endblock %}

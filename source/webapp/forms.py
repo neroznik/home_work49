@@ -8,7 +8,7 @@ class TasksForm(forms.Form):
 
     class Meta:
         model = Tasks
-        fields = ['summary', 'description', 'type', 'status', 'publish_at']
+        fields = ['summary', 'description', 'type', 'status', 'created_at']
         widgets = {'status': forms.CheckboxSelectMultiple,
                    'type': forms.CheckboxSelectMultiple}
 
