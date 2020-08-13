@@ -4,13 +4,12 @@ from django.core.exceptions import ValidationError
 from .models import Tasks
 
 
-class TasksForm(forms.Form):
+class TasksForm(forms.ModelForm):
 
     class Meta:
         model = Tasks
-        fields = ['summary', 'description', 'type', 'status', 'created_at']
-        widgets = {'status': forms.CheckboxSelectMultiple,
-                   'type': forms.CheckboxSelectMultiple}
+        fields = ['summary', 'description', 'type', 'status']
+        widgets = {'type': forms.CheckboxSelectMultiple}
 
     def clean(self):
         cleaned_data = super().clean()
