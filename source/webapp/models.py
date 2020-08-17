@@ -22,6 +22,7 @@ class Tasks(models.Model):
     status = models.ForeignKey('webapp.Status', related_name='status', on_delete=models.PROTECT, verbose_name='Статус')
     type = models.ManyToManyField('webapp.Types', related_name='types', blank=True, verbose_name='Тип')
     created_at = models.DateTimeField(verbose_name='Время создания', default=timezone.now)
+    updated_at = models.DateTimeField(verbose_name='Время обновления', default=timezone.now)
 
     class Meta:
         verbose_name = "Task"
