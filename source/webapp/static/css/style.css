@@ -87,3 +87,11 @@ body {
     display: inline-block;
     float: right;
 }
+.description {
+    font-weight: bold;
+}
+
+.parameters {
+    font-size: 13px;
+    color: gray;
+}
