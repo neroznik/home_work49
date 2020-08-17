@@ -8,7 +8,7 @@ class TasksForm(forms.ModelForm):
 
     class Meta:
         model = Tasks
-        fields = ['summary', 'description', 'type', 'status']
+        fields = ['summary', 'description', 'type', 'status','updated_at']
         widgets = {'type': forms.CheckboxSelectMultiple}
 
     def clean(self):

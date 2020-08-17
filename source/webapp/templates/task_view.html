@@ -12,7 +12,7 @@
     <div class="block1">
     <h1>{{ Tasks.summary}}</h1>
     <p>{{ Tasks.description | linebreaks}}</p>
-    <p>Создан: {{ Tasks.created_at }}</p>
+    <p>Создан/ Обновлен: {{ Tasks.created_at }} / {{ Tasks.updated_at }}</p>
     <p>Статус: {{ Tasks.status }}</p>
     <p>Тип: {% for type in Tasks.type.all %}{{ type.name }}{% if not forloop.last %}, {%  endif %} {% endfor %}</p
     </div>

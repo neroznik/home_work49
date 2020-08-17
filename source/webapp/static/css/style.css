@@ -52,15 +52,15 @@ body {
 }
 .error {
     font-weight: bold;
-    color: red;
+    color: #ff0000;
     margin-top: 2px;
 }
 
 .form-input {
     border-radius: 5px;
     border: solid 1px lightgray;
-    background: #d4bb75;
-    color: black;
+    background: #fbcdff;
+    color: #000000;
     padding: 3px 5px;
 }
 
