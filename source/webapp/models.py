@@ -7,7 +7,7 @@ class Status(models.Model):
     name = models.CharField(max_length=10, verbose_name='Статус')
 
     def __str__(self):
-        return "{}".format(self.name, )
+        return "{}".format(self.name)
 
 class Types(models.Model):
     name = models.CharField(max_length=10, verbose_name='Тип')

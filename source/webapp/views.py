@@ -63,7 +63,7 @@ class TasksUpdateView(FormView):
         return context
 
     def get_initial(self):
-        return {'created_at': make_naive(self.task.created_at)}
+        return {'updated_at': make_naive(self.task.created_at)}
 
     def get_form_kwargs(self):
         kwargs = super().get_form_kwargs()
