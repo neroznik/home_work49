@@ -21,6 +21,16 @@
                <li><a href="/admin/">Admin</a></li>
                {% block menu %}{% endblock %}
            </ul>
+
+       {% block search %}
+
+
+           <form class="form-inline my-2 my-lg-0" action= "{% url 'index' %}" method="GET">
+               <input class="form-control mr-sm-2"  type="{{ search_form.search }}" placeholder="Search">
+
+        <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>
+        </form>
+       {% endblock %}
        </div>
     </nav>
     <div class="container">
