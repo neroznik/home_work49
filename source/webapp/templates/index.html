@@ -5,9 +5,11 @@
 
 {% block content %}
     <div class = 'block1'><h1><b> Мои задачи</b> <i>(цитируем Bash.im)</i> <b>: </b></h1>
+     {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
+
     <div class="row ">
-
-
     {% for Task in Tasks %}
 
         <div class="col-5 wrap my-4 bg_self">
@@ -35,6 +37,10 @@
     {% endfor %}
 
     </div>
+
+     {% if is_paginated %}
+        {% include 'partial/pagination.html' %}
+    {% endif %}
      </div>
 {% endblock %}
 
