@@ -1,6 +1,8 @@
 body {
     font-family: Arial, sans-serif;
-    background: beige;
+    background: #00aa77;
+    background-image: url("http://www.render911.ru/upload/resize_cache/iblock/97f/200_200_2/97f63e8e5a81897bdc46168786eff52a.jpg") !important;
+    background-repeat: repeat;
     color: darkslategray;
     text-align: left ;
 }
@@ -12,7 +14,7 @@ body {
 
 .navbar {
     display: block;
-    background: darkgoldenrod;
+    background: #90c4bd;
     position: fixed;
     top: 0;
     right: 0;
@@ -22,8 +24,12 @@ body {
     padding: 7px 30px;
 }
 
+.bg_self{
+    background-color: #f2fafa !important;
+}
+
 .menu {
-    font-size: 14px;
+    font-size: 20px;
     line-height: 1;
     padding: 0;
     margin: 0;
@@ -38,7 +44,7 @@ body {
 .menu a {
     display: inline-block;
     text-decoration: none;
-    color: inherit;
+    color: #661f52;
     padding: 5px 15px;
 }
 
@@ -49,6 +55,7 @@ body {
 
 .block1 {
     padding: 40px 40px;
+    color: #661f52;
 }
 .error {
     font-weight: bold;
@@ -94,4 +101,26 @@ body {
 .parameters {
     font-size: 13px;
     color: gray;
+}
+
+
+.wrap{
+			display: flex;
+			flex-wrap: wrap;
+            color: black;
+		}
+.item{
+			display: flex;
+			width: 25%;
+			border: 1px solid #3C1111;
+			box-sizing: border-box;
+			float: left;
+
+		}
+a:hover {color: #b68bb2 !important;}
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    color: red !important;
 }
