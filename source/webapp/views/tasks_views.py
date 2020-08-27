@@ -4,7 +4,7 @@ from django.http import HttpResponseNotAllowed
 from django.urls import reverse
 
 from django.utils.timezone import make_naive
-from django.views.generic import View, TemplateView, FormView, CreateView, ListView
+from django.views.generic import TemplateView, FormView, CreateView, ListView
 
 from webapp.forms import TasksForm, SimpleSearchForm
 from webapp.models import Tasks
@@ -51,12 +51,12 @@ class SearchView(ListView):
 
 
 class IndexView(SearchView):
-    template_name = 'index.html'
+    template_name = 'tasks/index.html'
     context_object_name = 'Tasks'
     paginate_by = 10
     paginate_orphans = 0
     model = Tasks
-    ordering = ['-created_at']
+    ordering = ['status']
     search_fields = ['summary__icontains', 'description__icontains']
 
     def get_queryset(self):
@@ -66,7 +66,7 @@ class IndexView(SearchView):
 
 
 class TasksView(TemplateView):
-    template_name = 'task_view.html'
+    template_name = 'tasks/task_view.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -78,7 +78,7 @@ class TasksView(TemplateView):
         return context
 
 class TasksCreateView(FormView):
-    template_name = 'task_create.html'
+    template_name = 'tasks/task_create.html'
     form_class = TasksForm
 
     def form_valid(self, form):
@@ -90,7 +90,7 @@ class TasksCreateView(FormView):
 
 
 class TasksUpdateView(FormView):
-    template_name = 'task_update.html'
+    template_name = 'tasks/task_update.html'
     form_class = TasksForm
 
     def dispatch(self, request, *args, **kwargs):
@@ -126,7 +126,7 @@ class TasksUpdateView(FormView):
 def task_delete_view(request, pk):
     task = get_object_or_404(Tasks, pk=pk)
     if request.method == 'GET':
-        return render(request, 'tasks_delete.html', context={'Tasks': task})
+        return render(request, 'tasks/tasks_delete.html', context={'Tasks': task})
     elif request.method == 'POST':
         Tasks.delete()
         return redirect('index')
