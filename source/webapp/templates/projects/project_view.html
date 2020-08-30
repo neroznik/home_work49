@@ -1,0 +1,35 @@
+ 
+{% extends 'base.html' %}
+
+{% block title %}Poll{% endblock %}
+
+{% block menu %}
+    <li><a href="{% url 'project_update' project.pk %}">Project update</a></li>
+    <li><a href="{% url 'project_delete' project.pk %}">Project delete</a></li>
+    <li><a href="{% url 'task_create' %}">Add task</a></li>
+{% endblock %}
+
+{% block content %}
+    <div class="block1">
+    <h1>{{ project.name}}</h1>
+    <h5>{{ project.description }}</h5>
+    <p>Создан/ завершен: {{ project.start_time }} / {{ project.end_time }}</p>
+
+
+        <h2>Задачи:</h2>
+    {% for task in project.project.all %}
+
+            <div class="card container mt-4 pt-2">
+                <h4>{{ task.summary }} ({{ task.created_at }})</h4>
+                <div class="pre">{{ task.description}}</div>
+                <p>Тип: {% for type in task.type.all %}{{ type.name }}{% if not forloop.last %}, {%  endif %} {% endfor %}</p>
+                <p> Статус: {{ task.status }}</p>
+                <p><a href="{% url 'task_update' task.pk %}">Update</a></p>
+                <p><a href="{% url 'task_delete' task.pk %}">Delete</a></p>
+            </div>
+        {% empty %}
+            <p>Нет задач:</p>
+        {% endfor %}
+
+    </div>
+{% endblock %}

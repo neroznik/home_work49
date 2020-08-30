@@ -9,13 +9,13 @@
 
 {% block content %}
     <div class="block1">
-    <h1>Вы уверены, что хотите удалить задачу "{{ tasks.summary }}"?</h1>
-      <form action="{% url "task_delete" tasks.pk %}" method="post">
+    <h1>Вы уверены, что хотите удалить проект "{{ projects.summary }}"?</h1>
+      <form action="{% url "project_delete" projects.pk %}" method="post">
         {% csrf_token %}
         <p><input type="submit" value="Да"></p>
-        <p><a href="{% url 'task_view' tasks.pk %}">Отмена</a></p>
+        <p><a href="{% url 'project_view' projects.pk %}">Отмена</a></p>
     </form>
     <h3>Описание: </h3>
-    <p>{{ Task.description }}</p>
+    <p>{{ projects.description }}</p>
     </div>
 {% endblock %}

@@ -1,5 +1,6 @@
 from django import forms
 from django.core.exceptions import ValidationError
+from django.forms import SelectDateWidget
 
 from .models import Tasks, Projects
 
@@ -8,13 +9,13 @@ class XDatepickerWidget(forms.TextInput):
     template_name = 'widgets/xdatepicker_widget.html'
 
 class ProjectsForm(forms.ModelForm):
-    start_time = forms.DateTimeField(required=False, label='Начало проекта', input_formats=['%Y-%m-%d'], widget=XDatepickerWidget)
-    end_time = forms.DateTimeField(required=False, label='Конец проекта', input_formats=['%Y-%m-%d'], widget=XDatepickerWidget)
+    start_time = forms.DateTimeField(required=False, label='Начало проекта', input_formats=['%Y-%m-%d'], widget=SelectDateWidget())
+    end_time = forms.DateTimeField(required=False, label='Конец проекта', input_formats=['%Y-%m-%d'], widget=SelectDateWidget())
 
     class Meta:
         model = Projects
-        fields = ['start_time', 'end_time', 'name', 'description']
-        widgets = {'type': forms.CheckboxSelectMultiple}
+        fields = ['start_time', 'end_time', 'name', 'description' ]
+        widgets = {'project': forms.CheckboxSelectMultiple}
 
 
 
@@ -22,7 +23,7 @@ class TasksForm(forms.ModelForm):
 
     class Meta:
         model = Tasks
-        fields = ['summary', 'description', 'type', 'status']
+        fields = ['project','summary', 'description', 'type', 'status']
         widgets = {'type': forms.CheckboxSelectMultiple}
 
     def clean(self):

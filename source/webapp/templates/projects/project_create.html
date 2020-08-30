@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block title %}ToDo list{% endblock %}
+
+
+
+{% block content %}
+    <div class = 'block1'>
+<h1>Add your task </h1>
+    {% url "project_create" as action_url %}
+    {% include 'partial/form.html' with action_url=action_url form_method='post' %}
+    </div>
+{% endblock %}
