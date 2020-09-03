@@ -1,12 +1,12 @@
-from django.core.paginator import Paginator
-from django.shortcuts import redirect, get_object_or_404
+
+from django.shortcuts import get_object_or_404
 from django.urls import reverse, reverse_lazy
-from django.utils.timezone import make_naive
 from django.views.generic import CreateView, UpdateView, DeleteView, TemplateView
 
 from webapp.models import Projects
 from webapp.forms import ProjectsForm
 from .base_views import SearchView
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
 class IndexView(SearchView):
@@ -38,7 +38,7 @@ class ProjectsView(TemplateView):
 
 
 
-class ProjectsCreateView(CreateView):
+class ProjectsCreateView(LoginRequiredMixin, CreateView):
     template_name = 'projects/project_create.html'
     form_class = ProjectsForm
 
@@ -50,7 +50,7 @@ class ProjectsCreateView(CreateView):
         return reverse('project_view', kwargs={'pk': self.project.pk})
 
 
-class ProjectsUpdateView(UpdateView):
+class ProjectsUpdateView(LoginRequiredMixin, UpdateView):
     template_name = 'projects/project_update.html'
     form_class = ProjectsForm
     model = Projects
@@ -58,7 +58,7 @@ class ProjectsUpdateView(UpdateView):
     def get_success_url(self):
         return reverse('project_view', kwargs={'pk': self.object.pk})
 
-class ProjectsDeleteView(DeleteView):
+class ProjectsDeleteView(LoginRequiredMixin, DeleteView):
     template_name = 'projects/project_delete.html'
     model = Projects
     success_url = reverse_lazy('index')
