@@ -8,7 +8,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>{% block title %}My Site{% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
-<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" type="text/css" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
     {% block links %}{% endblock %}
 </head>
@@ -17,9 +17,15 @@
        <div class="container">
            <ul class="menu">
                <li><a href="{% url 'index' %}">Home</a></li>
-               <li><a href="{% url 'project_create' %}">Create Project</a></li>
-               <li><a href="/admin/">Admin</a></li>
-               {% block menu %}{% endblock %}
+                {% if request.user.is_authenticated %}
+                    <li><a href="{% url 'project_create' %}">Create Project</a></li>
+                    <li><a href="/admin/">Admin</a></li>
+                    {% block menu %}{% endblock %}
+                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                {% endif %}
+
            </ul>
 
        {% block search %}
