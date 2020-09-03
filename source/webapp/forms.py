@@ -23,7 +23,7 @@ class TasksForm(forms.ModelForm):
 
     class Meta:
         model = Tasks
-        fields = ['project','summary', 'description', 'type', 'status']
+        fields = ['summary', 'description', 'type', 'status']
         widgets = {'type': forms.CheckboxSelectMultiple}
 
     def clean(self):

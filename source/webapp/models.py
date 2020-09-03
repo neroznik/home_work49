@@ -17,7 +17,7 @@ class Types(models.Model):
 
 class Projects(models.Model):
     start_time = models.DateTimeField(verbose_name = 'Начало проекта',blank=True)
-    end_time = models.DateTimeField(verbose_name='Конец проекта', blank=True,null=True)
+    end_time = models.DateTimeField(verbose_name='Конец проекта', blank=True, null=True)
     name = models.CharField(max_length=100, verbose_name='Название:', validators=[ProhibitNullCharactersValidator()])
     description = models.TextField(max_length=2000, verbose_name='Описание', validators=[MinLengthValidator(15)])
 
@@ -32,7 +32,7 @@ class Projects(models.Model):
 
 
 class Tasks(models.Model):
-    project = models.ManyToManyField('webapp.Projects', related_name='project', blank= True, verbose_name='Проект')
+    project = models.ForeignKey('webapp.Projects', related_name='project', on_delete=models.CASCADE, null=True, verbose_name='Проект')
     summary = models.CharField(max_length=100, verbose_name='Задача', validators=[ProhibitNullCharactersValidator()])
     description = models.TextField(max_length=1000, null=True, blank=True, verbose_name='Описание', validators=[MinLengthValidator(15)])
     status = models.ForeignKey('webapp.Status', related_name='status', on_delete=models.PROTECT, verbose_name='Статус')

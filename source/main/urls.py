@@ -24,7 +24,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', IndexView.as_view(), name='index'),
     path('tasks/<int:pk>/', TasksView.as_view(), name='task_view'),
-    path('tasks/add/', TasksCreateView.as_view(), name='task_create'),
+    path('project/<int:pk>/add_task/', TasksCreateView.as_view(), name='task_create'),
     path('tasks/<int:pk>/update/', TasksUpdateView.as_view(), name='task_update'),
     path('tasks/<int:pk>/delete/', TasksDeleteView.as_view(), name ='task_delete'),
     path('project/<int:pk>/', ProjectsView.as_view(), name='project_view'),

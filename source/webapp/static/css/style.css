@@ -1,7 +1,7 @@
 body {
     font-family: Arial, sans-serif;
     background: #00aa77;
-    background-image: url("http://www.render911.ru/upload/resize_cache/iblock/97f/200_200_2/97f63e8e5a81897bdc46168786eff52a.jpg") !important;
+    background-image: url("https://i.pinimg.com/originals/0d/d7/a3/0dd7a3c1ef319454546eb12212d90853.jpg") !important;
     background-repeat: repeat;
     color: darkslategray;
     text-align: left ;
@@ -14,7 +14,7 @@ body {
 
 .navbar {
     display: block;
-    background: #90c4bd;
+    background: #db9100;
     position: fixed;
     top: 0;
     right: 0;
