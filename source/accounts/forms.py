@@ -5,7 +5,7 @@ from accounts import forms
 
 
 class MyUserCreationForm(UserCreationForm):
-    email = forms.CharField(max_length=75, required=True)
+
 
     class Meta(UserCreationForm.Meta):
         fields = ['username', 'password1', 'password2',
