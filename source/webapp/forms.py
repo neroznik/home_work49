@@ -5,9 +5,6 @@ from django.forms import SelectDateWidget
 from .models import Tasks, Projects
 
 
-class XDatepickerWidget(forms.TextInput):
-    template_name = 'widgets/xdatepicker_widget.html'
-
 class ProjectsForm(forms.ModelForm):
     start_time = forms.DateTimeField(required=False, label='Начало проекта', input_formats=['%Y-%m-%d'], widget=SelectDateWidget())
     end_time = forms.DateTimeField(required=False, label='Конец проекта', input_formats=['%Y-%m-%d'], widget=SelectDateWidget())
