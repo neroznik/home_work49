@@ -24,5 +24,5 @@ class RegisterView(CreateView):
         if not next_url:
             next_url = self.request.POST.get('next')
         if not next_url:
-            next_url = reverse('webbapp:index')
+            next_url = reverse('webapp:index')
         return next_url
