@@ -16,15 +16,14 @@
     <nav class="navbar">
        <div class="container">
            <ul class="menu">
-               <li><a href="{% url 'index' %}">Home</a></li>
+               <li><a href="{% url 'webapp:index' %}">Home</a></li>
                 {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'project_create' %}">Create Project</a></li>
-                    <li><a href="/admin/">Admin</a></li>
+                    <li><a href="{% url 'webapp:project_create' %}">Create Project</a></li>
                     {% block menu %}{% endblock %}
-                    <li><a href="{% url 'logout' %}">Logout</a></li>
+                    <li><a href="{% url 'accounts:logout' %}?next={{ request.get_full_path }}">Logout</a></li>
                 {% else %}
-                    <li><a href="{% url 'login' %}">Login</a></li>
-                    <li><a href="{% url 'create_user' %}">Sing in</a></li>
+                    <li><a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Login</a></li>
+                    <li><a href="{% url 'accounts:create_user' %}?next={{ request.get_full_path }}">Sing in</a></li>
                 {% endif %}
 
            </ul>
@@ -32,7 +31,7 @@
        {% block search %}
 
 
-           <form class="form-inline my-2 my-lg-0" action= "{% url 'index' %}" method="GET">
+           <form class="form-inline my-2 my-lg-0" action= "{% url 'webapp:index' %}" method="GET">
                <input class="form-control mr-sm-2"  type="{{ search_form.search }}" placeholder="Search">
 
         <button class="btn btn-outline-danger my-2 my-sm-0" type="submit">Search</button>

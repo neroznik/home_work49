@@ -4,9 +4,9 @@
 {% block title %}Poll{% endblock %}
 
 {% block menu %}
-    <li><a href="{% url 'project_update' project.pk %}">Project update</a></li>
-    <li><a href="{% url 'project_delete' project.pk %}">Project delete</a></li>
-    <li><a href="{% url 'task_create' project.pk %}">Add task</a></li>
+    <li><a href="{% url 'webapp:project_update' project.pk %}">Project update</a></li>
+    <li><a href="{% url 'webapp:project_delete' project.pk %}">Project delete</a></li>
+    <li><a href="{% url 'webapp:task_create' project.pk %}">Add task</a></li>
 {% endblock %}
 
 {% block content %}
@@ -24,8 +24,8 @@
                 <div class="pre">{{ task.description}}</div>
                 <p>Тип: {% for type in task.type.all %}{{ type.name }}{% if not forloop.last %}, {%  endif %} {% endfor %}</p>
                 <p> Статус: {{ task.status }}</p>
-                <p><a href="{% url 'task_update' task.pk %}">Update</a></p>
-                <p><a href="{% url 'task_delete' task.pk %}">Delete</a></p>
+                <p><a href="{% url 'webapp:task_update' task.pk %}">Update</a></p>
+                <p><a href="{% url 'webapp:task_delete' task.pk %}">Delete</a></p>
             </div>
         {% empty %}
             <p>Нет задач:</p>

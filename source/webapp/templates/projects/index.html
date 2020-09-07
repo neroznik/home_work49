@@ -14,7 +14,7 @@
         <div class="col-9 wrap my-4 bg_self">
         <div class="row ">
             <div class="col-md-9">
-        <p class = "title"><a href="{% url "project_view" project.pk %}">{{ project.name }}</a></p>
+        <p class = "title"><a href="{% url "webapp:project_view" project.pk %}">{{ project.name }}</a></p>
         <div class="description"><i>{{ project.description | linebreaks }}</i></div>
         <p class="parameters"><p>Начало пректа: {{ project.start_time | date:"d.m.Y" }} </p>
         <p class="parameters"><p>Окончание пректа: {{ project.end_time | date:"d.m.Y" }} </p>
@@ -22,8 +22,8 @@
             </div>
         <div class="col-md-3">
             <div class="float-right">
-        <a class="btn btn-outline-success" href="{% url 'project_update' project.pk %}"> <i class="fa fa-fw fa-edit"></i></a>
-        <a class="btn btn-outline-danger" href="{% url 'project_delete' project.pk %}"> <i class="fa fa-fw fa-trash"></i></a>
+        <a class="btn btn-outline-success" href="{% url 'webapp:project_update' project.pk %}"> <i class="fa fa-fw fa-edit"></i></a>
+        <a class="btn btn-outline-danger" href="{% url 'webapp:project_delete' project.pk %}"> <i class="fa fa-fw fa-trash"></i></a>
         </div>
         </div>
         </div>

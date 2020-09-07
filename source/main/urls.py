@@ -14,27 +14,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.contrib.auth.views import LoginView, LogoutView
-from django.urls import path
+from django.urls import path, include
 
-from accounts.views import RegisterView
-from webapp.views.projects_views import ProjectsView, ProjectsCreateView, ProjectsUpdateView, ProjectsDeleteView, \
-    IndexView
-from webapp.views.tasks_views import TasksView, TasksCreateView, TasksUpdateView, TasksDeleteView
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', IndexView.as_view(), name='index'),
-    path('tasks/<int:pk>/', TasksView.as_view(), name='task_view'),
-    path('project/<int:pk>/add_task/', TasksCreateView.as_view(), name='task_create'),
-    path('tasks/<int:pk>/update/', TasksUpdateView.as_view(), name='task_update'),
-    path('tasks/<int:pk>/delete/', TasksDeleteView.as_view(), name ='task_delete'),
-    path('project/<int:pk>/', ProjectsView.as_view(), name='project_view'),
-    path('project/add/', ProjectsCreateView.as_view(), name='project_create'),
-    path('project/<int:pk>/update/', ProjectsUpdateView.as_view(), name='project_update'),
-    path('project/<int:pk>/delete/', ProjectsDeleteView.as_view(), name='project_delete'),
-
-    path('accounts/login/', LoginView.as_view(), name='login'),
-    path('accounts/logout/', LogoutView.as_view(), name='logout'),
-    path('register/', RegisterView.as_view(), name='create_user')
+    path('', include('webapp.urls')),
+    path('accounts/', include('accounts.urls'))
 ]

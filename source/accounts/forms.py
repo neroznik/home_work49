@@ -1,11 +1,11 @@
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
 
-from accounts import forms
+from django import forms
 
 
 class MyUserCreationForm(UserCreationForm):
-
+    email = forms.CharField(max_length=75, required=True)
 
     class Meta(UserCreationForm.Meta):
         fields = ['username', 'password1', 'password2',

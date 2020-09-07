@@ -3,12 +3,12 @@
 {% block title %}Update{% endblock %}
 
 {% block menu %}
-    <li><a href="{% url 'task_view' tasks.pk %}">Отмена</a></li>
+    <li><a href="{% url 'webapp:task_view' tasks.pk %}">Отмена</a></li>
 {% endblock %}
 
 {% block content %}
     <h1>Update Task</h1>
 
-    {% url "task_update" tasks.pk as action_url %}
+    {% url "webapp:task_update" tasks.pk as action_url %}
     {% include 'partial/form.html' with action_url=action_url form_method='post' button_text='Update' %}
 {% endblock %}
