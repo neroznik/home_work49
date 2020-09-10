@@ -48,7 +48,13 @@
     "start_time": "2020-07-13T18:00:00Z",
     "end_time": "2021-06-15T18:00:00Z",
     "name": "Project 1",
-    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras consequat, quam ut pretium interdum, sapien turpis egestas lacus, vitae eleifend nibh nisi a arcu. Proin enim libero, tincidunt vitae vulputate ultrices, rhoncus ut erat. Curabitur elementum et mauris at sodales. Donec metus tortor, rhoncus et neque non, molestie maximus nulla. Vestibulum tristique nibh eget lorem accumsan, ut bibendum sapien viverra. Maecenas at malesuada tortor. Maecenas maximus posuere pharetra."
+    "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras consequat, quam ut pretium interdum, sapien turpis egestas lacus, vitae eleifend nibh nisi a arcu. Proin enim libero, tincidunt vitae vulputate ultrices, rhoncus ut erat. Curabitur elementum et mauris at sodales. Donec metus tortor, rhoncus et neque non, molestie maximus nulla. Vestibulum tristique nibh eget lorem accumsan, ut bibendum sapien viverra. Maecenas at malesuada tortor. Maecenas maximus posuere pharetra.",
+    "users": [
+      1,
+      11,
+      12,
+      13
+    ]
   }
 },
 {
@@ -58,14 +64,18 @@
     "start_time": "2020-08-26T18:00:00Z",
     "end_time": "2020-12-16T18:00:00Z",
     "name": "Project 2",
-    "description": "Sadzie przest\u0119puj\u0105c dawn\u0105 gospodarski\u00e9j butach \u0142aska tamuje chlubi rozmaito\u015bci\u0105 kutasy. Wami Duma M\u00f3j przy nieodst\u0105pi\u0142 domu masz ksi\u0105\u017ckow\u00e9j echo g\u0142o\u015bniejsza kara. Kraju s\u0119dzi\u00f3w Bernardyn Wiwat zwany s\u0142u\u017cy\u0107 pokryjomu \u0142owy tuczy wyrzekn\u0105 wynalaz\u0142 Kolor. Porz\u0105dkiem swym nie\u017amierne nosi susy niewidziano mody przyzwala\u0142 Trzepiec\u0105c przyk\u0142adem samo zbyt mn\u0105. Cz\u0142ek och\u0142on\u0105\u0142 st\u00f3\u0142 Rodzoniutki M\u0119sczyznom u\u015bmierzy\u0142 Przejmowa\u0142 Je\u015bli \u0142\u0105ce wszystki\u00e9m Carski. Wp\u00f3\u0142g\u0142o\u015bne rano Gors puer przechrzci\u0142by wo\u0144 nieprzyjaciele rostrzygnijcie mego by\u0142. Uczty pilni lekka \u015aci\u0105gn\u0119\u0142y Witaj strzeleckiemu wojew\u00f3dztwie dotychczasowa gdzie Takim wilka. Najstraszni\u00e9j noc\u0105 Ca\u0142y Przywi\u00f3d\u0142szy rybki gdzie zaczerwienione Zgody kr\u0105g Prze\u015bladuj\u0105c przechrzci\u0142by morzu ludzi odpowiedzi\u00e9\u0107. Kroju zachwycony suk\u0105 echem Lilia Ojczy\u017anie w\u0142o\u015bcian sko\u0144czy\u0107 Libijskich spa\u0142 rad\u0105 ugoru."
+    "description": "Sadzie przest\u0119puj\u0105c dawn\u0105 gospodarski\u00e9j butach \u0142aska tamuje chlubi rozmaito\u015bci\u0105 kutasy. Wami Duma M\u00f3j przy nieodst\u0105pi\u0142 domu masz ksi\u0105\u017ckow\u00e9j echo g\u0142o\u015bniejsza kara. Kraju s\u0119dzi\u00f3w Bernardyn Wiwat zwany s\u0142u\u017cy\u0107 pokryjomu \u0142owy tuczy wyrzekn\u0105 wynalaz\u0142 Kolor. Porz\u0105dkiem swym nie\u017amierne nosi susy niewidziano mody przyzwala\u0142 Trzepiec\u0105c przyk\u0142adem samo zbyt mn\u0105. Cz\u0142ek och\u0142on\u0105\u0142 st\u00f3\u0142 Rodzoniutki M\u0119sczyznom u\u015bmierzy\u0142 Przejmowa\u0142 Je\u015bli \u0142\u0105ce wszystki\u00e9m Carski. Wp\u00f3\u0142g\u0142o\u015bne rano Gors puer przechrzci\u0142by wo\u0144 nieprzyjaciele rostrzygnijcie mego by\u0142. Uczty pilni lekka \u015aci\u0105gn\u0119\u0142y Witaj strzeleckiemu wojew\u00f3dztwie dotychczasowa gdzie Takim wilka. Najstraszni\u00e9j noc\u0105 Ca\u0142y Przywi\u00f3d\u0142szy rybki gdzie zaczerwienione Zgody kr\u0105g Prze\u015bladuj\u0105c przechrzci\u0142by morzu ludzi odpowiedzi\u00e9\u0107. Kroju zachwycony suk\u0105 echem Lilia Ojczy\u017anie w\u0142o\u015bcian sko\u0144czy\u0107 Libijskich spa\u0142 rad\u0105 ugoru.",
+    "users": [
+      1,
+      11
+    ]
   }
 },
 {
   "model": "webapp.tasks",
   "pk": 1,
   "fields": {
-    "project": 1,
+    "project": null,
     "summary": "Task 1",
     "description": "\u0425\u0445\u0445: \u041d\u0430\u0440\u043e\u0434. \u0410 \u043a\u0430\u043a \u043a\u0440\u0435\u043f\u0438\u0442\u044c \u043b\u0430\u043c\u0438\u043d\u0430\u0442 \u043a \u043f\u043e\u0442\u043e\u043b\u043a\u0443? \u0422\u043e\u043b\u044c\u043a\u043e \u043d\u0435 \u0441\u043f\u0440\u0430\u0448\u0438\u0432\u0430\u0439\u0442\u0435 \u0437\u0430\u0447\u0435\u043c..",
     "status": 2,
@@ -81,7 +91,7 @@
   "model": "webapp.tasks",
   "pk": 2,
   "fields": {
-    "project": 2,
+    "project": null,
     "summary": "Task 2",
     "description": "xxx: \u0415\u0441\u043b\u0438 \u0417\u0435\u043c\u043b\u044f \u043f\u043b\u043e\u0441\u043a\u0430\u044f, \u0430 \u043f\u043b\u0430\u043d\u0435\u0442\u0430 \u041d\u0438\u0431\u0438\u0440\u0443 \u0441\u0443\u0449\u0435\u0441\u0442\u0432\u0443\u0435\u0442, \u0442\u043e \u043e\u043d\u0430, \u0441\u0442\u0430\u043b\u043e \u0431\u044b\u0442\u044c, \u0442\u043e\u0436\u0435 \u043f\u043b\u043e\u0441\u043a\u0430\u044f?\r\nxxx: \u0410 \u043a\u0430\u043a \u043e\u043d\u0430 \u0442\u043e\u0433\u0434\u0430 \u0432\u0440\u0435\u0436\u0435\u0442\u0441\u044f \u0432 \u0417\u0435\u043c\u043b\u044e: \u043f\u043b\u0430\u0448\u043c\u044f \u0438\u043b\u0438 \u0440\u0435\u0431\u0440\u043e\u043c?.",
     "status": 3,
@@ -97,7 +107,7 @@
   "model": "webapp.tasks",
   "pk": 3,
   "fields": {
-    "project": 1,
+    "project": null,
     "summary": "Task 3",
     "description": "chilipizdrohan@twitter:\r\n\ud83c\uddf7\ud83c\uddfa: \u043a\u0442\u043e \u0432 \u043a\u0430\u043a\u043e\u043c \u043a\u043b\u0430\u0441\u0441\u0435 \u0443\u0447\u0438\u043b\u0441\u044f? \u044f \u0432 \u0430\r\n\ud83c\uddfa\ud83c\udde6: \u043e \u0438 \u044f \u0432 \u0430\r\n\ud83c\udde7\ud83c\uddfe: \u0430 \u044f \u0432 \u0431\r\n\ud83c\uddf0\ud83c\uddff: \u0430 \u044f \u0438 \u0432 \u0430 \u0438 \u0432 \u0431\r\n\u0438\u043d\u043e\u0441\u0442\u0440\u0430\u043d\u0446\u044b: \u043c\u044b \u0434\u043b\u044f \u0432\u0430\u0441 \u0448\u0443\u0442\u043a\u0430 \u0434\u0430?",
     "status": 3,
@@ -113,7 +123,7 @@
   "model": "webapp.tasks",
   "pk": 4,
   "fields": {
-    "project": 1,
+    "project": null,
     "summary": "Task 4",
     "description": "\u0420\u044b\u0446\u0430\u0440\u044c: \u041a\u043b\u044f\u043d\u0443\u0441\u044c \u0447\u0435\u0441\u0442\u044c\u044e, \u044f \u0436\u0435\u0441\u0442\u043e\u043a\u043e \u043e\u0442\u043e\u043c\u0449\u0443 \u0437\u0430 \u0441\u043c\u0435\u0440\u0442\u044c \u043c\u043e\u0435\u0433\u043e \u0431\u0440\u0430\u0442\u0430!!!\r\n\u042d\u043b\u044c\u0444: \u0421 \u0442\u043e\u0431\u043e\u0439 \u0431\u0443\u0434\u0435\u0442 \u043c\u043e\u0439 \u043b\u0443\u043a!!!\r\n\u0413\u043d\u043e\u043c: \u0418 \u043c\u043e\u0439 \u0442\u043e\u043f\u043e\u0440!!!\r\n\u041d\u0435\u043a\u0440\u043e\u043c\u0430\u043d\u0442: \u0418 \u0442\u0432\u043e\u0439 \u0431\u0440\u0430\u0442!!!",
     "status": 2,
@@ -128,15 +138,14 @@
   "model": "webapp.tasks",
   "pk": 6,
   "fields": {
-    "project": 2,
+    "project": 1,
     "summary": "Task 6",
     "description": "\u0445\u0445\u0445: \u044f \u0431\u0443\u0434\u0443 \u0432 \u0447\u0435\u0440\u043d\u043e\u0439 \u0448\u0430\u043f\u043a\u0435 \u0438 \u0441\u0438\u043d\u0438\u0445 \u0434\u0436\u0438\u043d\u0441\u0430\u0445, \u0440\u043e\u0441\u0442 \u043f\u0440\u0438\u043c\u0435\u0440\u043d\u043e 185, \u0432\u0435\u0441 84.\r\nyyy: \u043e\u043a, \u044f \u0431\u0443\u0434\u0443 \u0432 \u0447\u0435\u0440\u043d\u043e\u0439 \u043a\u0443\u0440\u0442\u043a\u0435 \u0441 \u0432\u0435\u0441\u0430\u043c\u0438 \u0438 \u0440\u0443\u043b\u0435\u0442\u043a\u043e\u0439.",
     "status": 3,
     "created_at": "2020-08-13T14:35:14Z",
     "updated_at": "2020-08-17T07:59:46Z",
     "type": [
-      1,
-      2
+      1
     ]
   }
 },
@@ -144,7 +153,7 @@
   "model": "webapp.tasks",
   "pk": 8,
   "fields": {
-    "project": 2,
+    "project": null,
     "summary": "Task 8",
     "description": "\u041c\u0443\u0436 \u043a\u0443\u043f\u0430\u0435\u0442 \u0440\u0435\u0431\u0451\u043d\u043a\u0430, \u043a\u0440\u0438\u0447\u0438\u0442 \u0438\u0437 \u0432\u0430\u043d\u043d\u043e\u0439:\r\n- \u041a\u0430\u0442\u044c, \u043e\u043d \u0435\u0441\u0442 \u043f\u0435\u043d\u0443!\r\n\u0427\u0435\u0440\u0435\u0437 \u043f\u0430\u0440\u0443 \u043c\u0438\u043d\u0443\u0442:\r\n- \u041a\u0430\u0442\u044c, \u043e\u043d\u0430 \u0440\u0435\u0430\u043b\u044c\u043d\u043e \u0432\u043a\u0443\u0441\u043d\u0430\u044f!",
     "status": 2,
@@ -159,7 +168,7 @@
   "model": "webapp.tasks",
   "pk": 10,
   "fields": {
-    "project": 1,
+    "project": null,
     "summary": "Task 9",
     "description": "\u0421\u0435\u0433\u043e\u0434\u043d\u044f \u0443\u0442\u0440\u043e\u043c \u043f\u043e\u0434 \u043e\u043a\u043d\u043e\u043c \u0433\u0440\u043e\u043c\u043a\u043e \u0431\u043e\u043b\u0442\u0430\u043b\u0438 \u043c\u0435\u0441\u0442\u043d\u044b\u0435 \u0430\u043b\u043a\u0430\u0448\u0438. \u0422\u0438\u043f\u0438\u0447\u043d\u044b\u0435 \u0442\u0430\u043a\u0438\u0435 \u0430\u043b\u043a\u0430\u0448\u0438, \u0441 \u043f\u0440\u0438\u043f\u0443\u0445\u0448\u0438\u043c \u043b\u0438\u0446\u043e\u043c, \u0441\u043b\u0435\u0433\u043a\u0430 \u0431\u043e\u043c\u0436\u0435\u0432\u0430\u0442\u043e\u0433\u043e \u0432\u0438\u0434\u0430. \u041e\u0434\u0438\u043d \u0433\u0440\u043e\u043c\u043a\u043e \u0434\u043e\u043a\u0430\u0437\u044b\u0432\u0430\u043b \u0434\u0440\u0443\u0433\u0438\u043c - \u044f \u043d\u0435 \u0442\u0430\u043a\u043e\u0439 \u043a\u0430\u043a \u0432\u044b, \u044f \u0441\u043f\u0435\u0446\u0438\u0430\u043b\u0438\u0441\u0442! \u0420\u0430\u0431\u043e\u0442\u0430\u044e \u0432 \u0442\u0435\u0445\u043f\u043e\u0434\u0434\u0435\u0440\u0436\u043a\u0435!",
     "status": 3,
@@ -174,7 +183,7 @@
   "model": "webapp.tasks",
   "pk": 11,
   "fields": {
-    "project": 2,
+    "project": null,
     "summary": "Task 10",
     "description": "xxx: \u041f\u0440\u0438 \u0434\u043e\u0441\u0442\u0430\u0442\u043e\u0447\u043d\u043e\u0439 \u0441\u043f\u043e\u0440\u043d\u043e\u0441\u0442\u0438 \u043e\u0442\u043d\u043e\u0441\u0438\u0442\u0435\u043b\u044c\u043d\u043e \u0442\u0435\u0445\u043d\u0438\u043a\u0438 \u0440\u0438\u0441\u0443\u043d\u043a\u0430, \u0441 \u0442\u043e\u0447\u043a\u0438 \u0437\u0440\u0435\u043d\u0438\u044f \u043a\u043e\u043c\u043f\u043e\u0437\u0438\u0446\u0438\u0438 \"\u0427\u0435\u0440\u043d\u044b\u0439 \u043a\u0432\u0430\u0434\u0440\u0430\u0442\" \u0438\u0434\u0435\u0430\u043b\u0435\u043d.",
     "status": 1,
@@ -205,7 +214,7 @@
   "model": "webapp.tasks",
   "pk": 13,
   "fields": {
-    "project": 2,
+    "project": null,
     "summary": "Task 12",
     "description": "Shak3r: \u0412\u0430\u0441\u044c, \u0441\u043b\u0443\u0448\u0430\u0439, \u043d\u0443 \u0432\u0441\u0451 \u0434\u0435\u043b\u0430\u044e, \u043a\u0430\u043a \u0442\u044b \u0433\u043e\u0432\u043e\u0440\u0438\u0448\u044c... \u042f \u043a\u043e\u043d\u0435\u0447\u043d\u043e \u043f\u043e\u043d\u0438\u043c\u0430\u044e, \u0447\u0442\u043e \u0441\u0432\u0435\u0442\u043a\u0430 \u0434\u0443\u0440\u0430 \u0438 \u0432\u043e\u043e\u0431\u0449\u0435 \u0441\u0442\u0440\u0430\u0448\u043d\u0430\u044f \u0436\u0443\u0442\u043a\u043e, \u043d\u043e \u0432\u0435\u0434\u044c \u043d\u0430 \u0442\u043e \u0438 \u0440\u0430\u0441\u0447\u0438\u0442\u044b\u0432\u0430\u044e, \u0447\u0442\u043e \u043f\u043e\u044d\u0442\u043e\u043c\u0443 \u0438 \u0434\u0430\u0441\u0442 \u043b\u0435\u0433\u043a\u043e. \u0410 \u043e\u043d\u0430 - \u043d\u0438 \u0432 \u043a\u0430\u043a\u0443\u044e. \u0413\u0434\u0435 \u044f \u043e\u0448\u0438\u0431\u0441\u044f?\r\n\u0421\u0432\u0435\u0442\u0438\u043a: \u041e\u043a\u043d\u043e\u043c... \u043e\u043a\u043d\u043e\u043c \u043e\u0448\u0438\u0431\u0441\u044f, c*\u043a\u0430",
     "status": 3,
@@ -220,7 +229,7 @@
   "model": "webapp.tasks",
   "pk": 15,
   "fields": {
-    "project": 1,
+    "project": null,
     "summary": "Task 14",
     "description": "\u0445\u0445\u0445: \u0432\u043e\u0441\u043a\u0440\u0435\u0441\u0435\u043d\u044c\u0435, \u0431\u0443\u0434\u0443\u0447\u0438 \u0441\u043b\u0435\u0433\u043a\u0430 \u043d\u0430 \u0432\u0435\u0441\u0435\u043b\u0435, \u043d\u0430\u0448\u0435\u043b \u0434\u043e\u043c\u0430 \u043a\u0443\u043b\u0435\u043a \u0441\u0443\u0445\u043e\u0444\u0440\u0443\u043a\u0442\u043e\u0432. \u0414\u0430\u0439 \u0434\u0443\u043c\u0430\u044e \u043a\u043e\u043c\u043f\u043e\u0442 \u0441\u0432\u0430\u0440\u044e. \u0421\u0432\u0430\u0440\u0438\u043b, \u0444\u0440\u0443\u043a\u0442\u044b \u0432\u0441\u0435 \u0440\u0430\u0432\u043d\u043e \u043d\u0438\u043a\u0442\u043e \u043d\u0435 \u0431\u0443\u0434\u0435\u0442 \u0435\u0441\u0442\u044c, \u0440\u0435\u0448\u0438\u043b \u043e\u0442\u0446\u0435\u0434\u0438\u0442\u044c. \u041f\u043e\u0441\u0442\u0430\u0432\u0438\u043b \u0434\u0443\u0440\u0448\u043b\u0430\u0433 \u0432 \u0440\u0430\u043a\u043e\u0432\u0438\u043d\u0443 \u0438 \u0441\u043b\u0438\u043b \u0436\u0438\u0434\u043a\u043e\u0441\u0442\u044c. \u0414\u043e\u043b\u0433\u043e \u0441\u0442\u043e\u044f\u043b \u043d\u0430\u0434 \u0440\u0430\u043a\u043e\u0432\u0438\u043d\u043e\u0439 \u0432 \u0441\u0442\u0443\u043f\u043e\u0440\u0435, \u043c\u043d\u043e\u0433\u043e \u0434\u0443\u043c\u0430\u043b...",
     "status": 3,
@@ -229,24 +238,6 @@
     "type": [
       1
     ]
-  }
-},
-{
-  "model": "auth.user",
-  "pk": 1,
-  "fields": {
-    "password": "pbkdf2_sha256$150000$fxVT5HSeTcaE$jXPef7hoEXW8QwMcLW5SmcnUpCdZaZWeFE3M71q7SkI=",
-    "last_login": "2020-09-03T07:32:55.480Z",
-    "is_superuser": true,
-    "username": "admin",
-    "first_name": "",
-    "last_name": "",
-    "email": "",
-    "is_staff": true,
-    "is_active": true,
-    "date_joined": "2020-08-10T10:17:51.276Z",
-    "groups": [],
-    "user_permissions": []
   }
 }
 ]
