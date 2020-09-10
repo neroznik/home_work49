@@ -21,5 +21,3 @@ class MyUserCreationForm(UserCreationForm):
                 raise ValidationError(errors)
             return cleaned_data
 
-
-

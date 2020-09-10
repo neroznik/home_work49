@@ -15,6 +15,11 @@
     <h5>{{ project.description }}</h5>
     <p>Создан/ завершен: {{ project.start_time }} / {{ project.end_time }}</p>
 
+    {% for user in users.projects %}
+    <p>{{ user.pk }}</p>
+    {% empty %}
+            <p>Нет пользователей:</p>
+    {% endfor %}
 
         <h2>Задачи:</h2>
     {% for task in project.project.all %}

@@ -1,12 +1,19 @@
 from django.contrib.auth.models import User
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
-from django.views.generic import CreateView
+from django.views.generic import CreateView, ListView
 
 from accounts.forms import MyUserCreationForm
+
+class UserLisrView(ListView):
+    model = User
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        return context
 
 
 class RegisterView(CreateView):

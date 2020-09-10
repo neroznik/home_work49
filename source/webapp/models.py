@@ -17,7 +17,7 @@ class Types(models.Model):
         return "{}".format(self.name)
 
 class Projects(models.Model):
-    users = models.ForeignKey(get_user_model(), on_delete= models.SET_DEFAULT, default=1, related_name='user', verbose_name='Пользователь')
+    users = models.ManyToManyField(get_user_model(), related_name='user', verbose_name='Пользователь')
     start_time = models.DateTimeField(verbose_name = 'Начало проекта',blank=True)
     end_time = models.DateTimeField(verbose_name='Конец проекта', blank=True, null=True)
     name = models.CharField(max_length=100, verbose_name='Название:', validators=[ProhibitNullCharactersValidator()])
