@@ -6,7 +6,7 @@ from django.views.generic import CreateView, UpdateView, DeleteView, TemplateVie
 from webapp.models import Projects
 from webapp.forms import ProjectsForm
 from .base_views import SearchView
-from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
 
 
 class IndexView(SearchView):
@@ -38,9 +38,10 @@ class ProjectsView(TemplateView):
 
 
 
-class ProjectsCreateView(LoginRequiredMixin, CreateView):
+class ProjectsCreateView(LoginRequiredMixin,PermissionRequiredMixin, CreateView):
     template_name = 'projects/project_create.html'
     form_class = ProjectsForm
+    permission_required = 'webapp.add_project'
 
     def form_valid(self, form):
         self.project = form.save()
@@ -50,16 +51,23 @@ class ProjectsCreateView(LoginRequiredMixin, CreateView):
         return reverse('webapp:project_view', kwargs={'pk': self.project.pk})
 
 
-class ProjectsUpdateView(LoginRequiredMixin, UpdateView):
+class ProjectsUpdateView(LoginRequiredMixin,PermissionRequiredMixin, UpdateView):
     template_name = 'projects/project_update.html'
     form_class = ProjectsForm
     model = Projects
+    permission_required = 'webapp.change_project'
+
+    def has_permission(self):
+        return super().has_permission() or self.get_object().users == self.request.user
 
     def get_success_url(self):
         return reverse('webapp:project_view', kwargs={'pk': self.object.pk})
 
-class ProjectsDeleteView(LoginRequiredMixin, DeleteView):
+class ProjectsDeleteView(LoginRequiredMixin,PermissionRequiredMixin, DeleteView):
     template_name = 'projects/project_delete.html'
     model = Projects
     success_url = reverse_lazy('index')
+    permission_required = 'webapp.delete_project'
 
+    def has_permission(self):
+       return super().has_permission() or self.get_object().users == self.request.user

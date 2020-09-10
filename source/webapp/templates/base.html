@@ -18,7 +18,10 @@
            <ul class="menu">
                <li><a href="{% url 'webapp:index' %}">Home</a></li>
                 {% if request.user.is_authenticated %}
-                    <li><a href="{% url 'webapp:project_create' %}">Create Project</a></li>
+                    {% if perms.webapp.add_project %}
+                        <li><a href="{% url 'webapp:project_create' %}">Create Project</a></li>
+                    {% endif %}
+
                     {% block menu %}{% endblock %}
                     <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
                 {% else %}

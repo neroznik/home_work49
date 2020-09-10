@@ -4,9 +4,16 @@
 {% block title %}Poll{% endblock %}
 
 {% block menu %}
-    <li><a href="{% url 'webapp:project_update' project.pk %}">Project update</a></li>
-    <li><a href="{% url 'webapp:project_delete' project.pk %}">Project delete</a></li>
-    <li><a href="{% url 'webapp:task_create' project.pk %}">Add task</a></li>
+    {% if perms.webapp.add_project %}
+        <li><a href="{% url 'webapp:task_create' project.pk %}">Add task</a></li>
+    {% endif %}
+    {% if perms.webapp.change_project %}
+        <li><a href="{% url 'webapp:project_update' project.pk %}">Project update</a></li>
+    {% endif %}
+    {% if perms.webapp.delete_project %}
+        <li><a href="{% url 'webapp:project_delete' project.pk %}">Project delete</a></li>
+    {% endif %}
+
 {% endblock %}
 
 {% block content %}
@@ -16,7 +23,7 @@
     <p>Создан/ завершен: {{ project.start_time }} / {{ project.end_time }}</p>
 
     <h3>Пользователи:</h3>
-    
+
         {% for user in project.users.all %}
     <pr>{{ user.username }}</pr>
     {% empty %}
@@ -32,8 +39,12 @@
                 <div class="pre">{{ task.description}}</div>
                 <p>Тип: {% for type in task.type.all %}{{ type.name }}{% if not forloop.last %}, {%  endif %} {% endfor %}</p>
                 <p> Статус: {{ task.status }}</p>
+
                 <p><a href="{% url 'webapp:task_update' task.pk %}">Update</a></p>
+
+
                 <p><a href="{% url 'webapp:task_delete' task.pk %}">Delete</a></p>
+
             </div>
         {% empty %}
             <p>Нет задач:</p>
