@@ -7,7 +7,7 @@
 {% block content %}
     <div class = 'block1'>
 <h1>Add your task </h1>
-    {% url "webapp:task_create" as action_url %}
-    {% include 'partial/form.html' with action_url=action_url form_method='post' %}
+    {% url "webapp:task_create"  %}
+    {% include 'partial/form.html' form_method='post' %}
     </div>
 {% endblock %}

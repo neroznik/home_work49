@@ -33,7 +33,7 @@ class TasksCreateView(LoginRequiredMixin, CreateView):
         task.project = project
         task.save()
         form.save_m2m()
-        return redirect('project_view', pk=project.pk)
+        return redirect('webapp:project_view', pk=project.pk)
 
 class TasksUpdateView(LoginRequiredMixin, UpdateView):
     model = Tasks
@@ -41,7 +41,7 @@ class TasksUpdateView(LoginRequiredMixin, UpdateView):
     form_class = TasksForm
 
     def get_success_url(self):
-        return reverse('task_view', kwargs={'pk': self.object.pk})
+        return reverse('webapp:task_view', kwargs={'pk': self.object.pk})
 
 
 class TasksDeleteView(LoginRequiredMixin, DeleteView):

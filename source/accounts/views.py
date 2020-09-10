@@ -1,12 +1,15 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.contrib.auth.models import User
 from django.shortcuts import render, get_object_or_404
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login, logout
 from django.urls import reverse
-from django.views.generic import CreateView, ListView
+from django.views.generic import CreateView, ListView, UpdateView
 
 from accounts.forms import MyUserCreationForm
+from webapp.models import Projects
+
 
 class UserLisrView(ListView):
     model = User
@@ -14,7 +17,6 @@ class UserLisrView(ListView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         return context
-
 
 class RegisterView(CreateView):
     model = User
@@ -33,3 +35,4 @@ class RegisterView(CreateView):
         if not next_url:
             next_url = reverse('webapp:index')
         return next_url
+
