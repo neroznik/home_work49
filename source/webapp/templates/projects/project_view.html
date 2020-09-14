@@ -7,10 +7,10 @@
     {% if perms.webapp.add_project %}
         <li><a href="{% url 'webapp:task_create' project.pk %}">Add task</a></li>
     {% endif %}
-    {% if perms.webapp.change_project %}
+    {% if perms.webapp.change_projects %}
         <li><a href="{% url 'webapp:project_update' project.pk %}">Project update</a></li>
     {% endif %}
-    {% if perms.webapp.delete_project %}
+    {% if perms.webapp.delete_projects %}
         <li><a href="{% url 'webapp:project_delete' project.pk %}">Project delete</a></li>
     {% endif %}
 
@@ -30,9 +30,9 @@
     {% empty %}
             <p>Нет пользователей:</p>
     {% endfor %}
-
+        {% if perms.webapp.can_change_group %}
       <a href="{% url 'webapp:project_users_update' project.pk %}"> Update users list </a>
-
+        {% endif %}
 
         <h2>Задачи:</h2>
     {% for task in project.project.all %}
@@ -42,12 +42,12 @@
                 <div class="pre">{{ task.description}}</div>
                 <p>Тип: {% for type in task.type.all %}{{ type.name }}{% if not forloop.last %}, {%  endif %} {% endfor %}</p>
                 <p> Статус: {{ task.status }}</p>
-
+                {% if perms.webapp.update_tasks %}
                 <p><a href="{% url 'webapp:task_update' task.pk %}">Update</a></p>
-
-
+                {% endif %}
+                {% if perms.webapp.delete_tasks %}
                 <p><a href="{% url 'webapp:task_delete' task.pk %}">Delete</a></p>
-
+                {% endif %}
             </div>
         {% empty %}
             <p>Нет задач:</p>
