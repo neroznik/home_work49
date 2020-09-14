@@ -13,13 +13,12 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from django.contrib import admin
 
 from django.urls import path
 
 
 from webapp.views.projects_views import ProjectsView, ProjectsCreateView, ProjectsUpdateView, ProjectsDeleteView, \
-    IndexView
+    IndexView, ProjectsUserUpdate
 from webapp.views.tasks_views import TasksView, TasksCreateView, TasksUpdateView, TasksDeleteView
 app_name = 'webapp'
 urlpatterns = [
@@ -31,6 +30,7 @@ urlpatterns = [
     path('project/<int:pk>/', ProjectsView.as_view(), name='project_view'),
     path('project/add/', ProjectsCreateView.as_view(), name='project_create'),
     path('project/<int:pk>/update/', ProjectsUpdateView.as_view(), name='project_update'),
-    path('project/<int:pk>/delete/', ProjectsDeleteView.as_view(), name='project_delete')
+    path('project/<int:pk>/delete/', ProjectsDeleteView.as_view(), name='project_delete'),
+    path('project/<int:pk>/users_update/', ProjectsUserUpdate.as_view(), name='project_users_update' )
 
 ]

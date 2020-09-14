@@ -26,9 +26,12 @@
 
         {% for user in project.users.all %}
     <pr>{{ user.username }}</pr>
+
     {% empty %}
             <p>Нет пользователей:</p>
     {% endfor %}
+
+      <a href="{% url 'webapp:project_users_update' project.pk %}"> Update users list </a>
 
 
         <h2>Задачи:</h2>

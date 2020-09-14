@@ -5,6 +5,8 @@ from django.core.exceptions import ValidationError
 from django import forms
 from django.forms import CheckboxSelectMultiple
 
+from webapp.models import Projects
+
 
 class MyUserCreationForm(UserCreationForm):
     email = forms.CharField(max_length=75, required=True)
@@ -22,4 +24,7 @@ class MyUserCreationForm(UserCreationForm):
             if errors:
                 raise ValidationError(errors)
             return cleaned_data
+
+
+
 

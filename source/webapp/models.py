@@ -26,6 +26,7 @@ class Projects(models.Model):
     class Meta:
         verbose_name = "Project"
         verbose_name_plural = "Projects"
+        permissions = [('can_change_group', 'Может изменять состав группы')]
 
 
     def __str__(self):
