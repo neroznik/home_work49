@@ -22,11 +22,17 @@
                         <li><a href="{% url 'webapp:project_create' %}">Create Project</a></li>
                     {% endif %}
 
+                    {% if perms.accounts.can_see_list %}
+                        <li><a href="{% url 'accounts:list' %}">Users list</a></li>
+                    {% endif %}
+
                     {% block menu %}{% endblock %}
                     <li><a href="{% url 'accounts:logout' %}">Logout</a></li>
+                    <li class="menu-right">Hello,<a href="{% url 'accounts:detail' user.pk%}">{{user.username}}</a>!</li>
                 {% else %}
                     <li><a href="{% url 'accounts:login' %}?next={{ request.get_full_path }}">Login</a></li>
                     <li><a href="{% url 'accounts:create_user' %}?next={{ request.get_full_path }}">SignUp</a></li>
+
                 {% endif %}
 
            </ul>

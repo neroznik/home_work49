@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Список пользователей{% endblock %}
+
+{% block menu %}
+{% endblock %}
+
+{% block content %}
+    <div class="block1">
+   {% for user in object_list %}
+    <li><a href="{% url 'accounts:detail' user.pk%}">{{user.username}}</a></li>
+
+    {% empty %}
+            <p>Нет пользователей:</p>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -25,7 +25,7 @@
     <h3>Пользователи:</h3>
 
         {% for user in project.users.all %}
-    <pr>{{ user.username }}</pr>
+    <pr><a href="{% url 'accounts:detail' user.pk%}">{{user.username}}</a></pr>
 
     {% empty %}
             <p>Нет пользователей:</p>
