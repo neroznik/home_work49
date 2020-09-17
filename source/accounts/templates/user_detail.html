@@ -17,8 +17,8 @@
     <p>Имя: {{ user_obj.first_name }}</p>
     <p>Фамилия: {{ user_obj.last_name }}</p>
     <p>Почта: {{ user_obj.email }}
-    <p> О себе: {{ user_obj.about }}</p>
-    <p> GitHub: {{ user_obj.git_url }}</p>
+    <p> О себе: {{ user_obj.profile.about }}</p>
+    <p> GitHub: <a href="{{ user_obj.profile.git_url }}">{{ user_obj.profile.git_url }}</a></p>
 
     <h2 class="text-center clear">Проекты пользователя:</h2>
     {{ user_obj.name }}

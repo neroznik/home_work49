@@ -13,14 +13,13 @@ from django.core.paginator import Paginator
 
 class UserListView(PermissionRequiredMixin, TemplateView):
     template_name = 'user_list.html'
+    permission_required = 'accounts:can_see_list'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context['object_list'] = User.objects.all()
         return context
 
-    def test_func(self):
-        return self.get_object().author == self.request.user or self.request.user.has_perm('accounts.can_see_list')
 
 
 class RegisterView(CreateView):
