@@ -1,14 +1,14 @@
-from django.contrib.auth.forms import UserChangeForm
+
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.contrib.auth import  login
 from django.urls import reverse
 from django.views.generic import CreateView, ListView, TemplateView, UpdateView
 
-from accounts.forms import MyUserCreationForm, ProfileChangeForm, PasswordChangeForm
+from accounts.forms import MyUserCreationForm, ProfileChangeForm, PasswordChangeForm, UserChangeForm
 from django.views.generic import DetailView
 from django.contrib.auth import get_user_model
-from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin
+from django.contrib.auth.mixins import LoginRequiredMixin, PermissionRequiredMixin, UserPassesTestMixin
 from django.core.paginator import Paginator
 
 class UserListView(PermissionRequiredMixin, TemplateView):
@@ -20,7 +20,7 @@ class UserListView(PermissionRequiredMixin, TemplateView):
         context['object_list'] = User.objects.all()
         return context
 
-class UserChangeView(UpdateView):
+class UserChangeView(UserPassesTestMixin,UpdateView):
     model = get_user_model()
     form_class = UserChangeForm
     template_name = 'user_change.html'
@@ -59,6 +59,10 @@ class UserChangeView(UpdateView):
     def get_success_url(self):
         return reverse('accounts:detail', kwargs={'pk': self.object.pk})
 
+
+    def test_func(self):
+        return self.get_object() == self.request.user
+
 class RegisterView(CreateView):
     model = User
     template_name = 'user_create.html'
@@ -94,7 +98,7 @@ class UserDetailView(LoginRequiredMixin, DetailView):
         kwargs['is_paginated'] = page.has_other_pages()
         return super().get_context_data(**kwargs)
 
-class UserPasswordChangeView(UpdateView):
+class UserPasswordChangeView(UserPassesTestMixin, UpdateView):
 
     model = get_user_model()
     template_name = 'user_password_change.html'
@@ -103,3 +107,6 @@ class UserPasswordChangeView(UpdateView):
 
     def get_success_url(self):
         return reverse('accounts:login')
+
+    def test_func(self):
+        return self.get_object() == self.request.user
