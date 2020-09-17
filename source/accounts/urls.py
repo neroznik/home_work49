@@ -21,7 +21,7 @@ from django.conf.urls.static import static
 
 
 
-from accounts.views import RegisterView, UserDetailView, UserListView
+from accounts.views import RegisterView, UserDetailView, UserListView, UserChangeView
 
 app_name = 'accounts'
 
@@ -30,5 +30,6 @@ urlpatterns = [
     path('logout/', LogoutView.as_view(), name='logout'),
     path('register/', RegisterView.as_view(), name='create_user'),
     path('<int:pk>/', UserDetailView.as_view(), name='detail'),
-    path('list/', UserListView.as_view(), name='list')
+    path('list/', UserListView.as_view(), name='list'),
+    path('<int:pk>/change/', UserChangeView.as_view(), name='change')
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

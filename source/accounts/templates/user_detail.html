@@ -3,15 +3,18 @@
 {% block title %}Пользователь{% endblock %}
 
 {% block menu_links %}
-    <li><a href="#">Редактировать</a></li>
-    <li><a href="#">Смена пароля</a></li>
 {% endblock %}
 
 {% block content %}
     <h1>Личная страница пользователя {{ user_obj.get_full_name|default:user_obj.username }}</h1>
+    <div>
+    <pr><a href="{% url 'accounts:change' user_obj.pk %}">Редактировать</a></pr>
+    <pr><a href="#">Смена пароля</a></pr>
+    </div>>
     {% if user_obj.profile.avatar %}
         <img class="avatar" src="{{ user_obj.profile.avatar.url }}" width="250" height="250" alt="user picture">
     {% endif %}
+
 
     <p>Имя пользователя: {{ user_obj.username }}</p>
     <p>Имя: {{ user_obj.first_name }}</p>
